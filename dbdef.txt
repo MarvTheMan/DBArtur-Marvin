@@ -1,0 +1,41 @@
+CREATE TABLE customers(customer_id integer primary key, name text, age integer, city text, street text, zip_code text);
+CREATE TABLE employees(employee_id integer primary key, name text, pay float);
+CREATE TABLE contracts(employee_id integer, start_date date, end_date date, function text, foreign key(employee_id) references employees(employee_id));
+CREATE TABLE drinks(drink_id integer primary key, name text, alcohol_percentage float, volume float, price float);
+CREATE TABLE stock(drink_id integer, amount integer, foreign key(drink_id) references drinks(drink_id));
+CREATE TABLE strong_drinks(drink_id integer, type text, foreign key(drink_id) references drinks(drink_id));
+CREATE TABLE beers(drink_id, type text, IBU integer, foreign key(drink_id) references drinks(drink_id));
+CREATE TABLE orders(order_id integer primary key, customer_id integer, drink_id integer, employee_id integer, time date, amount integer,
+foreign key(customer_id) references customers(customer_id), foreign key(drink_id) references drinks(drink_id), foreign key(employee_id) references employees(employee_id));
+
+INSERT INTO customers(customer_id, name, age, city, street, zip_code) values(1, 'Henry Pickens', 22, 'Roffa', 'Centje', '1111 AA');
+INSERT INTO customers(name, age, city, street, zip_code) values('Jannet Borg', 19, 'Skittadam', 'Vijf Sloezoe', '1111 BB');
+INSERT INTO customers(name, age, city, street, zip_code) values('Jim Neuter', 25, 'Vlaffa', 'Bij de ING', '1111 CC');
+
+INSERT INTO employees(employee_id, name, pay) values(1, 'Papa Neutje', 10.50);
+INSERT INTO employees(name, pay) values('John Travolta', 7.50);
+INSERT INTO employees(name, pay) values('Harry Harrison', 9);
+
+INSERT INTO contracts(employee_id, start_date, end_date, function) values(1, '2018-01-01', '2025-01-01', 'De baas boven baas.');
+INSERT INTO contracts(employee_id, start_date, end_date, function) values(2, '2019-01-01', '2026-01-01', 'Kent goeie playlist.');
+INSERT INTO contracts(employee_id, start_date, end_date, function) values(3, '2019-01-01', '2026-01-01', 'Is er ook bij,');
+
+INSERT INTO drinks(drink_id, name, alcohol_percentage, volume, price) values(1, 'Prearis Quadrupel', 10.0, 0.33, 6.70);
+INSERT INTO drinks(name, alcohol_percentage, volume, price) values('Pauwel Kwak', 8.4, 0.33, 5.20);
+INSERT INTO drinks(name, alcohol_percentage, volume, price) values('Jack Daniels', 18, 0.20, 6.50);
+INSERT INTO drinks(name, alcohol_percentage, volume, price) values('Smirnoff', 20, 0.20, 6);
+
+INSERT INTO beers(drink_id, type, IBU) values(1, 'Quadrupel', 30);
+INSERT INTO beers(drink_id, type, IBU) values(2, 'Pale', 25);
+
+INSERT INTO strong_drinks(drink_id, type) values(3, 'Whiskey');
+INSERT INTO strong_drinks(drink_id, type) values(4, 'Wodka');
+
+INSERT INTO stock(drink_id, amount) values(1, 10);
+INSERT INTO stock(drink_id, amount) values(2, 21);
+INSERT INTO stock(drink_id, amount) values(3, 5);
+INSERT INTO stock(drink_id, amount) values(4, 0);
+
+INSERT INTO orders(order_id, customer_id, drink_id, employee_id, time, amount) values(1, 2, 2, 1, '2019-15-02', 3);
+INSERT INTO orders(customer_id, drink_id, employee_id, time, amount) values(1, 1, 2, '2019-01-04', 1);
+INSERT INTO orders(customer_id, drink_id, employee_id, time, amount) values(3, 3, 4, '2020-05-01', 2);

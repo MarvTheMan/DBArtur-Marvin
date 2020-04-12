@@ -1,0 +1,191 @@
+-- Database Values. These values are faked and do not correlate to actual persons.
+
+-- Customers Fill:
+INSERT INTO customers (custID, name, address, age, points)
+VALUES (100, "Henk Hoogvliet", "Bollaan 12, Rotterdam", 22, 150);
+INSERT INTO customers (custID, name, address, age, points)
+VALUES (101, "Silva Schutter", "V. Hengelen Straat 3, Utrecht", 18, 200);
+INSERT INTO customers (custID, name, address, age, points)
+VALUES (002, "Gert Gupper", "Schilderweg 10, Amsterdam", 24, 50);
+INSERT INTO customers (custID, name, address, age, points)
+VALUES (003, "Hilda Hartig", "Lierweg 1, Leiden", 20, 150);
+INSERT INTO customers (custID, name, address, age, points)
+VALUES (004, "Javi Ugalde", "Van Bommel Straat 15, Utrecht", 19, 100);
+INSERT INTO customers (custID, name, address, age, points)
+VALUES (102, "Olaf Ovenmaker", "Wegisweg 123, Rotterdam", 15, 350);
+INSERT INTO customers (custID, name, address, age, points)
+VALUES (103, "Shin Shichi", "IBB 51, Utrecht", 31, 150);
+INSERT INTO customers (custID, name, address, age, points)
+VALUES (104, "Madelein Molenaar", "Leidense Weg 18, Leiden", 17, 350);
+
+-- Stores Fill:
+INSERT INTO stores (storeID, location, contact)
+VALUES (0, "Rotterdam", "010-672xxxxx");
+INSERT INTO stores (storeID, location, contact)
+VALUES (1, "Utrecht", "010-019xxxxx");
+INSERT INTO stores (storeID, location, contact)
+VALUES (2, "Amsterdam", "010-719xxxxx");
+INSERT INTO stores (storeID, location, contact)
+VALUES (3, "Leiden", "010-388xxxxx");
+
+-- Contracts Fill:
+INSERT INTO contracts (contID, start_date, end_date, function_desc)
+VALUES (0, 2018-07-11, 2023-07-11, "kassière");
+INSERT INTO contracts (contID, start_date, end_date, function_desc)
+VALUES (1, 2020-01-05, 2025-01-05, "kassière");
+INSERT INTO contracts (contID, start_date, end_date, function_desc)
+VALUES (2, 2016-11-11, 2021-11-11, "helper");
+INSERT INTO contracts (contID, start_date, end_date, function_desc)
+VALUES (3, 2018-04-28, 2023-04-28, "helper");
+INSERT INTO contracts (contID, start_date, end_date, function_desc)
+VALUES (4, 2019-01-16, 2024-01-16, "kassière");
+INSERT INTO contracts (contID, start_date, end_date, function_desc)
+VALUES (5, 2019-05-20, 2024-05-20, "helper");
+INSERT INTO contracts (contID, start_date, end_date, function_desc)
+VALUES (6, 2017-10-17, 2022-10-17, "kassière");
+INSERT INTO contracts (contID, start_date, end_date, function_desc)
+VALUES (7, 2020-02-01, 2025-02-01, "helper");
+
+-- Employees Fill:
+INSERT INTO employees (empID, storeID, contID, name, address, age)
+VALUES (001, 0, 0, "Jonas Jacobsen", "Steenweg 2, Rotterdam", 27);
+INSERT INTO employees (empID, storeID, contID, name, address, age)
+VALUES (002, 2, 1, "Gert Gupper", "Schilderweg 10, Amsterdam", 24);
+INSERT INTO employees (empID, storeID, contID, name, address, age)
+VALUES (003, 3, 2, "Hilda Hartig", "Lierweg 1, Leiden", 20);
+INSERT INTO employees (empID, storeID, contID, name, address, age)
+VALUES (004, 1, 3, "Javi Ugalde", "Van Bommel Straat 15, Utrecht", 19);
+INSERT INTO employees (empID, storeID, contID, name, address, age)
+VALUES (005, 1, 4, "Kevin Kolenhart", "Molenlaan 6, Utrecht", 16);
+INSERT INTO employees (empID, storeID, contID, name, address, age)
+VALUES (006, 0, 5, "Pieter Paaper", "Haggelweg 7, Rotterdam", 20);
+INSERT INTO employees (empID, storeID, contID, name, address, age)
+VALUES (007, 3, 6, "Jessica Jones", "Terrie Straat 10, Leiden", 18);
+INSERT INTO employees (empID, storeID, contID, name, address, age)
+VALUES (008, 2, 7, "Veronica Verdetta", "Reinhartlaan 12, Amsterdam", 26);
+
+-- Suppliers Fill:
+INSERT INTO suppliers(suppID, name, location, contact)
+VALUES (0, "Nintendo", "Japan", "+81-127xxxxx");
+INSERT INTO suppliers(suppID, name, location, contact)
+VALUES (1, "Sony", "USA", "+1-503xxxxx");
+INSERT INTO suppliers(suppID, name, location, contact)
+VALUES (2, "Microsoft", "USA", "+1-509xxxxx");
+
+-- Products Fill:
+INSERT INTO products (prodID, suppID, name, price, points)
+VALUES (0, 0, "Nintendo Switch", 329.99, 100);
+INSERT INTO products (prodID, suppID, name, price, points)
+VALUES (1, 1, "PlayStation 4", 329.99, 100);
+INSERT INTO products (prodID, suppID, name, price, points)
+VALUES (2, 2, "XBox One", 299.99, 100);
+INSERT INTO products (prodID, suppID, name, price, points)
+VALUES (3, 0, "Legend of Zelda: Breath of the Wild", 59.99, 50);
+INSERT INTO products (prodID, suppID, name, price, points)
+VALUES (4, 0, "Super Mario Odyssey", 59.99, 50);
+INSERT INTO products (prodID, suppID, name, price, points)
+VALUES (5, 1, "Uncharted 4", 19.99, 50);
+INSERT INTO products (prodID, suppID, name, price, points)
+VALUES (6, 1, "Last of US 2", 64.99, 50);
+INSERT INTO products (prodID, suppID, name, price, points)
+VALUES (7, 2, "Star Wars Battlefront 2", 19.99, 50);
+INSERT INTO products (prodID, suppID, name, price, points)
+VALUES (8, 2, "Halo: Master Chief Collection", 39.99, 50);
+
+-- Stocks Fill:
+INSERT INTO stocks (storeID, prodID, amount)
+VALUES (0, 0, 1);
+INSERT INTO stocks (storeID, prodID, amount)
+VALUES (0, 1, 2);
+INSERT INTO stocks (storeID, prodID, amount)
+VALUES (0, 2, 3);
+INSERT INTO stocks (storeID, prodID, amount)
+VALUES (0, 3, 4);
+INSERT INTO stocks (storeID, prodID, amount)
+VALUES (0, 5, 5);
+INSERT INTO stocks (storeID, prodID, amount)
+VALUES (0, 7, 5);
+INSERT INTO stocks (storeID, prodID, amount)
+VALUES (0, 8, 5);
+INSERT INTO stocks (storeID, prodID, amount)
+VALUES (1, 0, 2);
+INSERT INTO stocks (storeID, prodID, amount)
+VALUES (1, 1, 2);
+INSERT INTO stocks (storeID, prodID, amount)
+VALUES (1, 2, 2);
+INSERT INTO stocks (storeID, prodID, amount)
+VALUES (1, 3, 4);
+INSERT INTO stocks (storeID, prodID, amount)
+VALUES (1, 4, 5);
+INSERT INTO stocks (storeID, prodID, amount)
+VALUES (1, 5, 4);
+INSERT INTO stocks (storeID, prodID, amount)
+VALUES (1, 7, 5);
+INSERT INTO stocks (storeID, prodID, amount)
+VALUES (1, 8, 4);
+INSERT INTO stocks (storeID, prodID, amount)
+VALUES (2, 0, 2);
+INSERT INTO stocks (storeID, prodID, amount)
+VALUES (2, 1, 3);
+INSERT INTO stocks (storeID, prodID, amount)
+VALUES (2, 2, 2);
+INSERT INTO stocks (storeID, prodID, amount)
+VALUES (2, 3, 5);
+INSERT INTO stocks (storeID, prodID, amount)
+VALUES (2, 4, 4);
+INSERT INTO stocks (storeID, prodID, amount)
+VALUES (2, 6, 4);
+INSERT INTO stocks (storeID, prodID, amount)
+VALUES (2, 7, 4);
+INSERT INTO stocks (storeID, prodID, amount)
+VALUES (3, 0, 2);
+INSERT INTO stocks (storeID, prodID, amount)
+VALUES (3, 1, 1);
+INSERT INTO stocks (storeID, prodID, amount)
+VALUES (3, 3, 5);
+INSERT INTO stocks (storeID, prodID, amount)
+VALUES (3, 4, 5);
+INSERT INTO stocks (storeID, prodID, amount)
+VALUES (3, 6, 5);
+INSERT INTO stocks (storeID, prodID, amount)
+VALUES (3, 7, 5);
+
+-- Purchases Fill:
+INSERT INTO purchases (custID, storeID, prodID, empID)
+VALUES (100, 0, 0, 001);
+INSERT INTO purchases (custID, storeID, prodID, empID)
+VALUES (100, 0, 3, 001);
+INSERT INTO purchases (custID, storeID, prodID, empID)
+VALUES (101, 1, 0, 004);
+INSERT INTO purchases (custID, storeID, prodID, empID)
+VALUES (101, 1, 1, 005);
+INSERT INTO purchases (custID, storeID, prodID, empID)
+VALUES (002, 2, 7, 008);
+INSERT INTO purchases (custID, storeID, prodID, empID)
+VALUES (003, 3, 1, 007);
+INSERT INTO purchases (custID, storeID, prodID, empID)
+VALUES (003, 2, 6, 008);
+INSERT INTO purchases (custID, storeID, prodID, empID)
+VALUES (004, 1, 8, 005);
+INSERT INTO purchases (custID, storeID, prodID, empID)
+VALUES (004, 1, 5, 005);
+INSERT INTO purchases (custID, storeID, prodID, empID)
+VALUES (102, 0, 0, 001);
+INSERT INTO purchases (custID, storeID, prodID, empID)
+VALUES (102, 2, 1, 008);
+INSERT INTO purchases (custID, storeID, prodID, empID)
+VALUES (102, 1, 2, 004);
+INSERT INTO purchases (custID, storeID, prodID, empID)
+VALUES (102, 3, 3, 003);
+INSERT INTO purchases (custID, storeID, prodID, empID)
+VALUES (103, 2, 0, 008);
+INSERT INTO purchases (custID, storeID, prodID, empID)
+VALUES (103, 2, 4, 008);
+INSERT INTO purchases (custID, storeID, prodID, empID)
+VALUES (104, 0, 0, 001);
+INSERT INTO purchases (custID, storeID, prodID, empID)
+VALUES (104, 3, 1, 003);
+INSERT INTO purchases (custID, storeID, prodID, empID)
+VALUES (104, 2, 2, 008);
+INSERT INTO purchases (custID, storeID, prodID, empID)
+VALUES (104, 1, 3, 004);

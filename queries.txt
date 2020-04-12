@@ -1,0 +1,52 @@
+-- Query 2: Which employee which is also a customer hasn't sold any products?
+SELECT *
+FROM employees INNER JOIN customers ON customers.custID = employees.empID
+WHERE NOT EXISTS (
+SELECT * FROM purchases
+WHERE purchases.empID = employees.empID);
+
+-- Query 4: Who is the youngest customer to shop at all the stores?
+SELECT *
+FROM customers AS c
+WHERE EXISTS (
+SELECT * FROM purchases AS p
+WHERE p.storeID = 0 AND p.custID = c.custID)
+AND EXISTS (
+SELECT * FROM purchases AS p
+WHERE p.storeID = 1 AND p.custID = c.custID)
+AND EXISTS (
+SELECT * FROM purchases AS p
+WHERE p.storeID = 2 AND p.custID = c.custID)
+AND EXISTS (
+SELECT * FROM purchases AS p
+WHERE p.storeID = 3 AND p.custID = c.custID)
+AND c.age = (SELECT MIN(age) FROM customers);
+
+-- Query 6: Which customer in Rotterdam, which isn't an employee, has the second highest point count?
+SELECT *
+FROM (
+SELECT *
+FROM customers AS C
+WHERE NOT EXISTS (
+SELECT * FROM employees AS E
+WHERE E.empID = C.custID)
+AND EXISTS (
+SELECT * FROM purchases AS P
+WHERE P.storeID = 0 AND P.custID = C.custID))
+WHERE points = (SELECT MAX(points) FROM (
+SELECT *
+FROM customers AS C
+WHERE NOT EXISTS (
+SELECT * FROM employees AS E
+WHERE E.empID = C.custID)
+AND EXISTS (
+SELECT * FROM purchases AS P
+WHERE P.storeID = 0 AND P.custID = C.custID)) WHERE points < (SELECT MAX(points) FROM (
+SELECT *
+FROM customers AS C
+WHERE NOT EXISTS (
+SELECT * FROM employees AS E
+WHERE E.empID = C.custID)
+AND EXISTS (
+SELECT * FROM purchases AS P
+WHERE P.storeID = 0 AND P.custID = C.custID))));

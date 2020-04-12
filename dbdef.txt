@@ -1,8 +1,8 @@
 CREATE TABLE customers(custID integer primary key, name text, address text, age integer, points integer);
 CREATE TABLE stores(storeID integer primary key, location text, contact text);
-CREATE TABLE contracts(contID integer primary key, start date, end date, function text);
-CREATE TABLE suppliers(suppID integer primary key, location text, contact text);
-CREATE TABLE products(prodID integer primary key, suppID integer, price float, points integer, foreign key(suppID) references suppliers(suppID));
+CREATE TABLE contracts(contID integer primary key, start_date date, end_date date, function_desc text);
+CREATE TABLE suppliers(suppID integer primary key, name text, location text, contact text);
+CREATE TABLE products(prodID integer primary key, suppID integer, name text, price float, points integer, foreign key(suppID) references suppliers(suppID));
 CREATE TABLE stocks(storeID integer, prodID integer, amount integer, foreign key(storeID) references stores(storeID), foreign key(prodID) references products(prodID));
 CREATE TABLE employees(empID integer primary key, storeID integer, contID integer, name text, address text, age integer, foreign key(storeID) references stores(storeID), foreign key(contID) references contracts(contID));
 CREATE TABLE purchases(custID integer, storeID integer, prodID integer, empID integer, foreign key(custID) references customers(custID), foreign key(storeID) references stores(storeID), foreign key(prodID) references products(prodID), foreign key(empID) references employees(empID));

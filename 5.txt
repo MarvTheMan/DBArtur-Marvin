@@ -1,0 +1,9 @@
+Which five items are the worst selling ones?
+
+SELECT prodID FROM purchases 
+GROUP BY 
+prodID
+ORDER BY
+SELECT SUM(purchases) ASC
+LIMIT 5;
+

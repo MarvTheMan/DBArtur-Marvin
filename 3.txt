@@ -1,0 +1,11 @@
+Which customers only drink drinks which cost less than 4 euro in the store in Utrecht?
+
+SELECT * FROM customers INNER JOIN purchases ON 
+purchases.custID = customers.custID
+WHERE EXISTS (
+
+purchases.storeID = 3 )
+
+AND EXISTS ( 
+
+products.price < 4)

@@ -1,0 +1,9 @@
+SELECT * FROM employees
+employees NATURAL LEFT OUTER JOIN purchases ON
+store = storeID
+WHERE (
+	storeID = 1
+	)
+AND SUM(price) >= ALL;
+
+This gives the highest turnover of an employee in a particular store. 
